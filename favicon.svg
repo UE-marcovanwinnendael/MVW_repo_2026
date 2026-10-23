@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <title>Marco van Winnendael</title>
+  <rect width="64" height="64" rx="13" fill="#0a0a0a"/>
+  <path d="M8 54 H56" stroke="#30333a" stroke-width="1"/>
+  <path d="M12 48V18L21.5 18L32 36L42.5 18H52V48H44V30L34 46H30L20 30V48Z" fill="#f5f4f0"/>
+  <circle cx="52" cy="12" r="4" fill="#35d6e4"/>
+</svg>
