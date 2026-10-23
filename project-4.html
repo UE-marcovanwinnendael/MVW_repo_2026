@@ -95,36 +95,36 @@ main{position:relative;z-index:2}
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<nav><a class="nav-brand" href="index.html">Marco van Winnendael</a><div class="nav-right"><a href="index.html#work">Portfolio</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a><a class="nav-back" href="index.html#work">← Back to projects</a></div></nav>
+<nav><a class="nav-brand" href="index.html">Marco van Winnendael</a><div class="nav-right"><a href="./#work">Portfolio</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a><a class="nav-back" href="./#work">← Back to projects</a></div></nav>
 <main id="main">
 <section class="hero">
  <div class="container hero-grid">
   <div class="hero-copy">
-   <div class="eyebrow">Project 05 / 2026 / Independent development</div>
+   <div class="eyebrow">Project 05</div>
    <img class="hero-brand" src="patinha-logo-wide.png" alt="Patinha.pt logo" width="694" height="156">
    <h1 class="hero-title">Care made local.<br>Trust made visible.</h1>
    <p class="hero-desc">A bilingual pet care marketplace designed and developed independently for Greater Lisbon. Patinha connects owners with vetted sitters through location based discovery, booking, communication and payment tools.</p>
-   <div class="hero-tags"><span class="tag">Web App</span><span class="tag">Marketplace</span><span class="tag">GIS</span><span class="tag">Solo Project</span></div>
+   <div class="hero-tags"><span class="tag">Web App</span><span class="tag">Marketplace</span><span class="tag">Full Stack Website</span></div>
    <div class="btns"><a class="btn btn-main" href="https://patinha.pt" target="_blank" rel="noopener noreferrer">Visit Patinha.pt ↗</a><a class="btn btn-secondary" href="#experience">Explore the project ↓</a></div>
   </div>
   <div class="mock" role="img" aria-label="Conceptual illustration of a neighborhood discovery map. This is not a live representation of sitter locations.">
    <div class="mock-top"><img src="patinha-logo-wide.png" alt="" aria-hidden="true"><span>GREATER LISBON</span></div>
    <div class="mock-dot one"></div><div class="mock-dot two"></div><div class="mock-dot three"></div><div class="mock-dot four"></div>
-   <div class="mock-bottom"><strong>Local discovery, considered privacy.</strong><p>Map based discovery provides an approximate location instead of displaying a sitter's home address.</p></div>
+   <div class="mock-bottom"><strong>Local care, easier to discover.</strong><p>Explore nearby sitters using an interactive map and filters tailored to Greater Lisbon.</p></div>
    <div class="mock-note">Illustrative map graphic</div>
   </div>
  </div>
- <div class="container stats"><div class="stat"><strong>PT / EN</strong><span>Languages</span></div><div class="stat"><strong>400 m</strong><span>Approximate location radius</span></div><div class="stat"><strong>3</strong><span>Commission tiers</span></div><div class="stat"><strong>1</strong><span>Developer</span></div></div>
+ <div class="container stats"><div class="stat"><strong>PT / EN</strong><span>Languages</span></div><div class="stat"><strong>Lisbon</strong><span>Service region</span></div><div class="stat"><strong>3</strong><span>Commission tiers</span></div><div class="stat"><strong>1</strong><span>Developer</span></div></div>
 </section>
-<section class="section" id="concept"><div class="container"><span class="eyebrow">01 / Concept</span><p class="quote">What if finding a pet sitter felt as trustworthy as asking a neighbour?</p><div class="two-col"><div><h2 class="section-title">A regional marketplace with a personal approach.</h2></div><div class="body"><p>Most pet care platforms are designed to work everywhere. Patinha focuses on Greater Lisbon, where language, neighbourhoods, trust and local expectations matter.</p><p>I designed and built the project independently, from its visual identity and interface to database configuration, authentication, the booking flow, payment integration and administration tools.</p><p>The application uses a lightweight JavaScript frontend and is deployed on Vercel. The product includes Portuguese and English interfaces and dedicated terms and privacy information.</p></div></div></div></section>
+<section class="section" id="concept"><div class="container"><span class="eyebrow">01 / Concept</span><p class="quote">What if finding a pet sitter felt as trustworthy as asking a neighbour?</p><div class="two-col"><div><h2 class="section-title">A regional marketplace with a personal approach.</h2></div><div class="body"><p>Most pet care platforms are designed to work everywhere. Patinha focuses on Greater Lisbon, where language, neighbourhoods, trust and local expectations matter.</p><p>I designed and built the project independently, from its visual identity and interface to database configuration, authentication, the booking flow, payment integration and administration tools.</p><p>The application uses a lightweight JavaScript frontend and is deployed on Vercel. The product includes Portuguese and English interfaces and a fully responsive experience.</p></div></div></div></section>
 <section class="section" id="experience"><div class="container"><div class="eyebrow">02 / Experience</div><h2 class="section-title">Three connected experiences.</h2><p class="section-lead">Each feature was designed as part of an end to end workflow for owners, sitters and the person managing the platform.</p><div class="pill-grid">
-<div class="feature"><span class="n">01 / DISCOVERY</span><h3>A map that respects privacy</h3><p>Owners explore profiles through an interactive Lisbon map, search and filter by care type. Public locations are deliberately approximate, helping protect sitters' home addresses.</p></div>
+<div class="feature"><span class="n">01 / DISCOVERY</span><h3>Interactive sitter discovery</h3><p>Owners explore profiles through an interactive Lisbon map, search by neighbourhood and filter sitters by the type of care they provide.</p></div>
 <div class="feature"><span class="n">02 / BOOKINGS</span><h3>From request to payment</h3><p>The booking flow connects owner requests and sitter responses with Stripe Checkout. Payment events feed into booking updates, with a separate payout flow designed around completed stays.</p></div>
 <div class="feature"><span class="n">03 / COMMUNITY</span><h3>Trust, conversation and reviews</h3><p>Sitters go through an approval process before appearing publicly. The product combines chat, media sharing, booking updates and reviews to help both sides make informed choices.</p></div>
 </div></div></section>
-<section class="section"><div class="container"><div class="eyebrow">03 / Product architecture</div><h2 class="section-title">Built as one connected product.</h2><p class="section-lead">An overview of the technology decisions, without publishing private infrastructure configurations or access controls.</p><div class="flow">
+<section class="section"><div class="container"><div class="eyebrow">03 / Product architecture</div><h2 class="section-title">Built as one connected product.</h2><p class="section-lead">An overview of the core technologies connecting the interface, location features, bookings and payments.</p><div class="flow">
 <div class="flow-item"><span>FRONTEND</span><strong>Vanilla JavaScript</strong><small>Responsive UI, language switching and client interactions</small></div>
-<div class="flow-item"><span>LOCATION</span><strong>Leaflet + OpenStreetMap</strong><small>Interactive map, search and approximate location display</small></div>
+<div class="flow-item"><span>LOCATION</span><strong>Leaflet + OpenStreetMap</strong><small>Interactive map, location search and sitter discovery</small></div>
 <div class="flow-item"><span>DATA</span><strong>Supabase</strong><small>Authentication, PostgreSQL, storage and server functions</small></div>
 <div class="flow-item"><span>TRANSACTIONS</span><strong>Stripe + Resend</strong><small>Payment experiences and transactional email communication</small></div>
 </div></div></section>
@@ -142,10 +142,9 @@ main{position:relative;z-index:2}
 <div class="tech"><strong>Vanilla JavaScript</strong><p>Fast, lightweight browser interactions without a frontend framework.</p></div>
 <div class="tech"><strong>Resend + Vercel</strong><p>Transactional messaging and hosting of the production application.</p></div>
 </div></div></section>
-<section class="section"><div class="container"><div class="eyebrow">06 / Design responsibility</div><h2 class="section-title">Privacy is part of the product.</h2><p class="section-lead">The platform incorporates approximate public sitter locations, account access rules, approval steps and dedicated user facing legal information. Specific security configurations and private operational details are intentionally not included in this case study.</p><div class="boundary">This page is a portfolio overview of the development work. It does not disclose API credentials, server secrets, personal sitter data or the internal details of administrative controls.</div></div></section>
-<section class="section center"><div class="container"><div class="eyebrow">Built independently / 2026</div><h2 class="section-title">From idea to an operating web application.</h2><p class="section-lead">Brand, interface, geospatial discovery, data, bookings, payments and administration, brought together in one product.</p><div class="btns" style="justify-content:center"><a class="btn btn-main" href="https://patinha.pt" target="_blank" rel="noopener noreferrer">Visit Patinha.pt ↗</a><a class="btn btn-secondary" href="index.html#work">Back to portfolio ↑</a></div></div></section>
+<section class="section center"><div class="container"><div class="eyebrow">Full Stack Website</div><h2 class="section-title">From idea to an operating web application.</h2><p class="section-lead">Brand, interface, geospatial discovery, data, bookings, payments and administration, brought together in one product.</p><div class="btns" style="justify-content:center"><a class="btn btn-main" href="https://patinha.pt" target="_blank" rel="noopener noreferrer">Visit Patinha.pt ↗</a><a class="btn btn-secondary" href="./#work">Back to portfolio ↑</a></div></div></section>
 </main>
-<footer class="footer"><div class="container"><span>© 2026 Marco van Winnendael</span><span>Patinha.pt · Independent project · Greater Lisbon</span></div></footer>
+<footer class="footer"><div class="container"><span>© 2026 Marco van Winnendael</span><span>Patinha.pt · Full Stack Website · Greater Lisbon</span></div></footer>
 <script>
 const previewButton=document.getElementById('preview-button');
 previewButton.addEventListener('click',()=>{
