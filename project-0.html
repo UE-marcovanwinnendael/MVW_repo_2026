@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Darkroom Secret — Marco van Winnendael</title>
+<title>The Darkroom Secret | Marco van Winnendael</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -21,13 +21,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);cu
 nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;z-index:500;background:rgba(10,10,10,0.88);backdrop-filter:blur(14px);border-bottom:.5px solid rgba(245,244,240,.07);}
 .nav-logo{font-weight:500;font-size:15px;color:var(--white);text-decoration:none;}
 .nav-back{display:flex;align-items:center;gap:10px;color:var(--muted);text-decoration:none;font-size:12px;letter-spacing:.1em;text-transform:uppercase;transition:color .25s;cursor:none;}
-.nav-back:hover{color:var(--white);}
+.nav-back:hover,.nav-back:focus-visible{color:var(--white);}
 .nav-back svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;transition:transform .25s;}
 .nav-back:hover svg{transform:translateX(-4px);}
 
 /* HERO — full screen video */
 .hero{position:relative;height:100vh;overflow:hidden;display:flex;align-items:flex-end;}
-.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;background:#090909;}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,1) 0%,rgba(8,8,8,.55) 40%,rgba(8,8,8,.15) 100%);}
 .hero-content{position:relative;z-index:2;padding:0 80px 80px;max-width:900px;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:.5px solid rgba(192,57,43,.5);border-radius:100px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(192,57,43,.9);background:rgba(192,57,43,.08);backdrop-filter:blur(8px);margin-bottom:24px;}
@@ -82,7 +82,11 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:cen
 /* VIDEO SECTION */
 .video-section{position:relative;z-index:10;}
 .video-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;}
-.video-wrap video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#080808;}
+.gameplay-footnote{max-width:1100px;margin:0 auto;padding:22px 32px 70px;display:flex;justify-content:space-between;align-items:center;gap:24px;}
+.gameplay-footnote p{font-size:13px;line-height:1.7;color:var(--muted);}
+.gameplay-footnote a{font-size:12px;color:var(--white);text-decoration:none;border-bottom:1px solid rgba(245,244,240,.36);padding-bottom:4px;white-space:nowrap;}
+.gameplay-footnote a:hover{border-color:var(--white);}
 
 /* TOOLS */
 .tools-section{background:rgba(245,244,240,.02);border-top:.5px solid rgba(245,244,240,.06);border-bottom:.5px solid rgba(245,244,240,.06);}
@@ -108,6 +112,63 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:cen
 .reveal-right{opacity:0;transform:translateX(40px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);}
 .reveal-right.in{opacity:1;transform:none;}
 .d1{transition-delay:.1s;} .d2{transition-delay:.2s;} .d3{transition-delay:.3s;} .d4{transition-delay:.4s;}
+
+/* ── RESPONSIVE PROJECT PAGE ── */
+@media (hover:none), (pointer:coarse) {
+  body,.nav-back,.nav-links a,.proj-nav-link {cursor:auto;}
+  #cursor {display:none;}
+}
+@media (max-width:960px) {
+  nav {padding:0 24px;}
+  .nav-links {gap:20px;}
+  .hero-content {padding:0 36px 64px;}
+  .section {padding:80px 36px;}
+  .intro-grid {gap:32px;}
+  .split-text {padding:40px 30px;}
+  .stats {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .tools-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .features-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .showcase,.video-outer,.figma-outer {padding:0 36px 80px;}
+  .proj-nav {padding:50px 36px;}
+}
+@media (max-width:640px) {
+  nav {height:60px;padding:0 18px;gap:12px;}
+  .nav-logo {font-size:12px;line-height:1.25;max-width:45%;}
+  .nav-links {position:static;transform:none;margin-left:auto;gap:11px;}
+  .nav-links a {font-size:10px;letter-spacing:0;}
+  .nav-li {display:none;}
+  .nav-back {font-size:10px;gap:4px;}
+  nav > div[style] {display:none;}
+  .hero {height:85svh;min-height:540px;max-height:800px;}
+  .hero-content {width:100%;padding:0 22px 54px;} 
+  .gameplay-footnote {padding:18px 22px 54px;flex-direction:column;align-items:flex-start;gap:14px;}
+  .gameplay-footnote a {white-space:normal;}
+  .hero-title {font-size:clamp(44px,12vw,66px);overflow-wrap:anywhere;}
+  .hero-year {margin-bottom:16px;}
+  .hero-desc {font-size:13px;line-height:1.6;margin-bottom:20px;}
+  .hero-tags {display:flex;flex-wrap:wrap;gap:6px;}
+  .section {padding:68px 22px;}
+  .intro-grid,.split-section {grid-template-columns:minmax(0,1fr);gap:22px;}
+  .intro-title {font-size:clamp(30px,8vw,42px);margin-bottom:20px;}
+  .intro-body p {font-size:14px;line-height:1.75;}
+  .stats {grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin:40px 0;}
+  .stat {padding:24px 12px;}
+  .stat-num {font-size:32px;}
+  .split-text {padding:34px 23px;}
+  .split-img img {height:auto;max-height:430px;}
+  .features-grid {grid-template-columns:minmax(0,1fr);margin-top:30px;}
+  .feature {padding:30px 24px;}
+  .tools-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .tool-item {padding:25px 12px;}
+  .showcase,.video-outer,.figma-outer {padding:0 22px 65px;}
+  .figma-wrap iframe {height:450px;}
+  .proj-nav {padding:32px 22px 48px;gap:12px;align-items:flex-start;}
+  .proj-nav-title {font-size:17px;line-height:1.2;}
+  .proj-nav-link {font-size:9px;letter-spacing:.04em;}
+  .proj-nav-divider {height:42px;}
+  img,video,iframe {max-width:100%;}
+}
+@media (prefers-reduced-motion:reduce) { .reveal,.reveal-left,.reveal-right {opacity:1!important;transform:none!important;transition:none!important;} }
 </style>
 </head>
 <body>
@@ -125,8 +186,8 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:cen
 
 <!-- ── HERO ── -->
 <div class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="Trailer-DarkroomSecret-v2_1.mp4" type="video/mp4">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="darkroom-hero-poster.jpg" aria-hidden="true">
+    <source src="DarkroomSecret_hero.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -153,8 +214,8 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:cen
         <h2 class="intro-title">A virtual darkroom you have to experience to believe.</h2>
       </div>
       <div class="intro-body reveal-right">
-        <p>The Darkroom Secret is a fully immersive VR escape room built inside a hyperrealistic recreation of the real analog photo printing lab at our university. Players must solve puzzles rooted in actual darkroom chemistry and technique to escape — making it both a game and an educational experience.</p>
-        <p>The project was conceived, designed, and built entirely by us. Every object in the scene — from the ceiling lights to the chemical trays — was modelled, textured and placed by hand. Nothing was sourced from asset stores.</p>
+        <p>The Darkroom Secret is a fully immersive VR escape room set inside a detailed recreation of the real analog photo printing lab at our university. Players solve puzzles inspired by authentic darkroom chemistry and techniques to escape. The result is both a game and an educational experience.</p>
+        <p>I created The Darkroom Secret together with my colleagues <strong>Enzo Carreira</strong> and <strong>Duarte Bernardes</strong>. As a team, we conceived, designed and built the experience from scratch. Every object in the scene, from the ceiling lights to the chemical trays, was modelled, textured and placed by hand. Nothing was sourced from asset stores.</p>
       </div>
     </div>
 
@@ -178,7 +239,7 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:cen
   <div class="split-text">
     <div class="split-text-label">Environment Design</div>
     <h3>A 1:1 replica of a real university darkroom</h3>
-    <p>We walked into the actual photo printing lab and measured, photographed and documented every detail — then rebuilt it from scratch in Blender. The result is a virtual space that feels genuinely familiar to anyone who has been in that room.</p>
+    <p>We visited the actual photo printing lab to measure, photograph and document its details before rebuilding it from scratch in Blender. The result is a virtual space that feels genuinely familiar to anyone who has been in that room.</p>
     <p>From the industrial pendant lamps to the worktops and chemical sinks, every element was modelled and textured by hand. Substance Painter was used to bring authentic wear, grime and material variation to each surface.</p>
   </div>
 </div>
@@ -189,8 +250,8 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:cen
 <div class="split-section">
   <div class="split-text reveal-left">
     <div class="split-text-label">Hero Asset</div>
-    <h3>The Axomat 5a enlarger — hand-built in Blender</h3>
-    <p>The centrepiece of the escape room is a fully modelled Axomat 5a colour enlarger. Every component — the bellows, the colour filter head with its C/M/Y/D dials, the column, the baseboard, the timer dial — was built individually from reference photos of the real machine.</p>
+    <h3>The Axomat 5a enlarger, modelled in Blender</h3>
+    <p>The centrepiece of the escape room is a fully modelled Axomat 5a colour enlarger. Every component, including the bellows, colour filter head with its C/M/Y/D dials, column, baseboard and timer dial, was built individually using reference photos of the real machine.</p>
     <p>Textures were crafted in Substance Painter to replicate the matte black casing, metallic highlights, and the subtle wear marks of a machine that has been used for decades in a teaching environment.</p>
   </div>
   <div class="split-img reveal-right">
@@ -204,14 +265,22 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:cen
 <div class="section">
   <div class="section-inner">
     <div class="section-label reveal">Gameplay</div>
-    <h2 class="intro-title reveal" style="max-width:600px;margin-bottom:48px;">Experience the escape room</h2>
+    <h2 class="intro-title reveal" style="max-width:600px;margin-bottom:48px;">Watch the full VR escape room gameplay</h2>
   </div>
 </div>
 <div class="video-section">
   <div class="video-wrap">
-    <video autoplay muted loop playsinline>
-      <source src="Gamemplay_cut_2.mp4" type="video/mp4">
-    </video>
+    <iframe
+      src="https://www.youtube.com/embed/1Z5CKO7Q-o4"
+      title="The Darkroom Secret full VR gameplay"
+      referrerpolicy="strict-origin-when-cross-origin"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+  <div class="gameplay-footnote">
+    <p>See the complete experience, including the environment and puzzle interactions.</p>
+    <a href="https://youtu.be/1Z5CKO7Q-o4" target="_blank" rel="noopener noreferrer">Watch the full gameplay on YouTube ↗</a>
   </div>
 </div>
 
