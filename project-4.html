@@ -51,6 +51,10 @@ main{position:relative;z-index:2}
 .mock-bottom{position:absolute;bottom:22px;left:22px;right:22px;padding:23px;border-radius:15px;background:rgba(11,18,12,.91);z-index:3;border:1px solid rgba(245,244,240,.09)}
 .mock-bottom strong{font-size:16px}.mock-bottom p{font-size:12px;color:#b6b8b0;line-height:1.7;margin:7px 0 0}
 .mock-note{position:absolute;bottom:8px;right:22px;font-size:9px;color:#676f62;z-index:4}
+.mock-visual{position:absolute;inset:70px 0 0 0;width:100%;height:calc(100% - 70px);object-fit:cover;object-position:center top;z-index:1;filter:saturate(.96) contrast(1.02)}
+.mock-top{position:relative;z-index:3}
+.mock-bottom{z-index:3}
+.mock-note{z-index:4}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);margin-top:58px}
 .stat{padding:33px 20px 30px;text-align:center;position:relative}
 .stat:not(:last-child){border-right:1px solid var(--stroke)}
@@ -107,11 +111,11 @@ main{position:relative;z-index:2}
    <div class="hero-tags"><span class="tag">Web App</span><span class="tag">Marketplace</span><span class="tag">Full Stack Website</span></div>
    <div class="btns"><a class="btn btn-main" href="https://patinha.pt" target="_blank" rel="noopener noreferrer">Visit Patinha.pt ↗</a><a class="btn btn-secondary" href="#experience">Explore the project ↓</a></div>
   </div>
-  <div class="mock" role="img" aria-label="Conceptual illustration of a neighborhood discovery map. This is not a live representation of sitter locations.">
+  <div class="mock" role="img" aria-label="Patinha.pt map interface showing sitters near Lisbon.">
    <div class="mock-top"><img src="patinha-logo-wide.png" alt="" aria-hidden="true"><span>GREATER LISBON</span></div>
-   <div class="mock-dot one"></div><div class="mock-dot two"></div><div class="mock-dot three"></div><div class="mock-dot four"></div>
+   <img class="mock-visual" src="patinha-live-preview.png" alt="Patinha.pt search experience with sitter map and filters">
    <div class="mock-bottom"><strong>Local care, easier to discover.</strong><p>Explore nearby sitters using an interactive map and filters tailored to Greater Lisbon.</p></div>
-   <div class="mock-note">Illustrative map graphic</div>
+   <div class="mock-note">Live product screenshot</div>
   </div>
  </div>
  <div class="container stats"><div class="stat"><strong>PT / EN</strong><span>Languages</span></div><div class="stat"><strong>Lisbon</strong><span>Service region</span></div><div class="stat"><strong>3</strong><span>Commission tiers</span></div><div class="stat"><strong>1</strong><span>Developer</span></div></div>
