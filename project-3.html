@@ -67,6 +67,7 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:cen
 .video-label::after{content:'';flex:0 0 40px;height:.5px;background:var(--red);opacity:.5;}
 .video-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:16px;box-shadow:0 40px 100px rgba(0,0,0,.7);border:.5px solid rgba(245,244,240,.08);}
 .video-wrap video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 
 /* FIGMA */
 .figma-outer{position:relative;z-index:10;padding:0 80px 120px;}
@@ -108,6 +109,61 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:cen
 .reveal-right{opacity:0;transform:translateX(40px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1);}
 .reveal-right.in{opacity:1;transform:none;}
 .d1{transition-delay:.1s;} .d2{transition-delay:.2s;} .d3{transition-delay:.3s;} .d4{transition-delay:.4s;}
+
+/* ── RESPONSIVE PROJECT PAGE ── */
+@media (hover:none), (pointer:coarse) {
+  body,.nav-back,.nav-links a,.proj-nav-link {cursor:auto;}
+  #cursor {display:none;}
+}
+@media (max-width:960px) {
+  nav {padding:0 24px;}
+  .nav-links {gap:20px;}
+  .hero-content {padding:0 36px 64px;}
+  .section {padding:80px 36px;}
+  .intro-grid {gap:32px;}
+  .split-text {padding:40px 30px;}
+  .stats {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .tools-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .features-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .showcase,.video-outer,.figma-outer {padding:0 36px 80px;}
+  .proj-nav {padding:50px 36px;}
+}
+@media (max-width:640px) {
+  nav {height:60px;padding:0 18px;gap:12px;}
+  .nav-logo {font-size:12px;line-height:1.25;max-width:45%;}
+  .nav-links {position:static;transform:none;margin-left:auto;gap:11px;}
+  .nav-links a {font-size:10px;letter-spacing:0;}
+  .nav-li {display:none;}
+  .nav-back {font-size:10px;gap:4px;}
+  nav > div[style] {display:none;}
+  .hero {height:85svh;min-height:540px;max-height:800px;}
+  .hero-content {width:100%;padding:0 22px 54px;}
+  .hero-title {font-size:clamp(44px,12vw,66px);overflow-wrap:anywhere;}
+  .hero-year {margin-bottom:16px;}
+  .hero-desc {font-size:13px;line-height:1.6;margin-bottom:20px;}
+  .hero-tags {display:flex;flex-wrap:wrap;gap:6px;}
+  .section {padding:68px 22px;}
+  .intro-grid,.split-section {grid-template-columns:minmax(0,1fr);gap:22px;}
+  .intro-title {font-size:clamp(30px,8vw,42px);margin-bottom:20px;}
+  .intro-body p {font-size:14px;line-height:1.75;}
+  .stats {grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin:40px 0;}
+  .stat {padding:24px 12px;}
+  .stat-num {font-size:32px;}
+  .split-text {padding:34px 23px;}
+  .split-img img {height:auto;max-height:430px;}
+  .features-grid {grid-template-columns:minmax(0,1fr);margin-top:30px;}
+  .feature {padding:30px 24px;}
+  .tools-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .tool-item {padding:25px 12px;}
+  .showcase,.video-outer,.figma-outer {padding:0 22px 65px;}
+  .figma-wrap iframe {height:450px;}
+  .proj-nav {padding:32px 22px 48px;gap:12px;align-items:flex-start;}
+  .proj-nav-title {font-size:17px;line-height:1.2;}
+  .proj-nav-link {font-size:9px;letter-spacing:.04em;}
+  .proj-nav-divider {height:42px;}
+  img,video,iframe {max-width:100%;}
+}
+@media (prefers-reduced-motion:reduce) { .reveal,.reveal-left,.reveal-right {opacity:1!important;transform:none!important;transition:none!important;} }
 </style>
 </head>
 <body>
@@ -205,9 +261,7 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:cen
     <div class="video-label reveal">Final Render — Watch This</div>
     <p class="reveal" style="font-size:14px;font-weight:300;color:var(--muted);line-height:1.7;max-width:600px;margin-bottom:40px;">This is the full final render of the Behind Sports pilot episode. A cinematic walkthrough of the AR experience — the F1 room, the dashboards, the car. This is the one to watch.</p>
     <div class="video-wrap reveal">
-      <video autoplay muted loop playsinline>
-        <source src="Gamemplay_cut_2.mp4" type="video/mp4">
-      </video>
+      <iframe src="https://www.youtube-nocookie.com/embed/MaahRWyjBsM" title="Behind Sports — Final Render" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
   </div>
 </div>
@@ -220,8 +274,9 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:cen
     <div class="video-label reveal">V6 Engine Demo</div>
     <p class="reveal" style="font-size:14px;font-weight:300;color:var(--muted);line-height:1.7;max-width:600px;margin-bottom:40px;">A showcase of the hand-modelled V6 hybrid engine — every part built from scratch in Blender.</p>
     <div class="video-wrap reveal">
-      <video autoplay muted loop playsinline>
-        <source src="V6_engine_demo_1_.mp4" type="video/mp4">
+      <video controls playsinline preload="metadata" aria-label="V6 Engine Demo">
+        <source src="V6_engine_demo.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
       </video>
     </div>
   </div>
