@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080c0a">
+  <meta name="description" content="Urban green areas in The Hague. A GIS spatial analysis and visualization project by Marco van Winnendael, including the complete 15 page ArcGIS Pro report.">
+  <title>Urban green areas in The Hague | Marco van Winnendael</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#080c0a; --white:#f5f4f0; --muted:#a6aea8; --green:#9bd485; --stroke:rgba(222,238,226,.12); }
+    * {box-sizing:border-box}
+    html {scroll-behavior:smooth}
+    body {margin:0;background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+    body::before {content:'';position:fixed;inset:0;background:radial-gradient(circle at 85% 2%,rgba(67,122,80,.17),transparent 44%);pointer-events:none;z-index:-1}
+    a {color:inherit}
+    .container {width:min(1170px,calc(100% - 66px));margin:auto}
+    nav {height:72px;position:sticky;top:0;z-index:40;border-bottom:1px solid var(--stroke);background:rgba(8,12,10,.94);backdrop-filter:blur(18px)}
+    .nav-content {height:100%;display:flex;justify-content:space-between;align-items:center;gap:15px}
+    .brand {font-weight:600;font-size:13px;letter-spacing:.04em;text-decoration:none}
+    .nav-links {display:flex;gap:23px;align-items:center}
+    .nav-links a {font-size:11px;text-decoration:none;color:#b1bcb5}
+    .nav-links a:hover {color:var(--white)}
+    .nav-back {border:1px solid var(--stroke);padding:10px 16px;border-radius:99px;color:var(--white)!important}
+    .hero {padding:94px 0 86px;border-bottom:1px solid var(--stroke)}
+    .eyebrow {color:var(--green);text-transform:uppercase;font-size:10px;font-weight:600;letter-spacing:.22em}
+    h1,h2,h3,p {margin-top:0}
+    h1,h2 {font-family:'Playfair Display',Georgia,serif;letter-spacing:-.025em}
+    h1 {font-size:clamp(46px,6vw,82px);line-height:1.06;margin:19px 0 24px;max-width:800px}
+    h1 em {font-style:normal;color:var(--green)}
+    .hero-grid {display:grid;grid-template-columns:1.05fr .95fr;gap:62px;align-items:center}
+    .lede {color:#b4bdb6;font-size:15px;line-height:1.93;max-width:590px;margin-bottom:26px}
+    .meta {display:flex;gap:11px;flex-wrap:wrap;margin:26px 0 31px}
+    .meta span {border:1px solid rgba(155,212,133,.2);color:#c1d6c0;border-radius:100px;padding:8px 13px;font-size:11px}
+    .actions {display:flex;flex-wrap:wrap;gap:11px}
+    .btn {display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:13px 20px;border:1px solid var(--stroke);border-radius:7px;font-size:12px;font-weight:600;min-height:46px;transition:transform .2s,border-color .2s}
+    .btn:hover {transform:translateY(-2px);border-color:var(--green)}
+    .btn-main {background:var(--green);border-color:var(--green);color:#0b180b}
+    .hero-map {margin:0;border:1px solid var(--stroke);border-radius:18px;overflow:hidden;background:#18231c;box-shadow:0 28px 70px rgba(0,0,0,.34)}
+    .hero-map img {display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain}
+    .hero-map figcaption {font-size:11px;color:#a9b9ae;padding:13px 18px}
+    .stats {display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:63px;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke)}
+    .stat {padding:24px;text-align:center}
+    .stat + .stat {border-left:1px solid var(--stroke)}
+    .stat strong {display:block;font:700 31px/1.2 'Playfair Display',Georgia,serif;color:#c5e2b7}
+    .stat span {display:block;font-size:11px;color:#96a59a;letter-spacing:.04em;margin-top:6px}
+    .section {padding:85px 0;border-bottom:1px solid var(--stroke)}
+    .section-heading {font-size:clamp(32px,4vw,51px);line-height:1.13;max-width:680px;margin:14px 0 19px}
+    .section-intro {font-size:14px;line-height:1.9;color:#acb4ad;max-width:800px}
+    .method-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-top:34px}
+    .method {min-height:204px;border:1px solid var(--stroke);padding:25px 24px;background:linear-gradient(155deg,#152119,#0b100d)}
+    .method small {color:var(--green);font-size:10px;letter-spacing:.16em}
+    .method h3 {font:700 21px/1.3 'Playfair Display',Georgia,serif;margin:14px 0}
+    .method p {font-size:12px;color:#a5afa7;line-height:1.8;margin:0}
+    #report {background:linear-gradient(180deg,rgba(40,74,45,.13),transparent 24%)}
+    .report-head {display:flex;align-items:flex-end;justify-content:space-between;gap:22px;flex-wrap:wrap;margin-bottom:25px}
+    .report-head .section-heading {margin-bottom:0}
+    .pdf-frame {border:1px solid rgba(215,234,220,.18);border-radius:16px;overflow:hidden;background:#1c211e;box-shadow:0 35px 85px rgba(0,0,0,.4)}
+    .browser-bar {height:48px;background:#182019;border-bottom:1px solid var(--stroke);display:flex;gap:7px;align-items:center;padding:0 18px}
+    .browser-bar b {width:9px;height:9px;border-radius:50%;background:#506a53;display:block}
+    .browser-bar b:nth-child(2) {background:#77926a}.browser-bar b:nth-child(3) {background:#a8c396}
+    .browser-label {margin-left:12px;color:#b7c7b8;font-size:11px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .pdf-frame iframe {width:100%;height:min(83vh,1040px);min-height:640px;border:0;background:#fff;display:block}
+    .pdf-note {display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:14px 18px;font-size:11px;color:#a7b5aa;border-top:1px solid var(--stroke)}
+    .pdf-note a {color:#c7e6b9;text-decoration:none}
+    .insight {margin-top:40px;border-left:2px solid var(--green);padding:14px 0 14px 24px;max-width:780px;font-size:14px;color:#b9c6ba;line-height:1.95}
+    .last {padding:95px 0;text-align:center}
+    .last h2 {font-size:clamp(34px,4.8vw,60px);line-height:1.14;margin:15px 0 25px}
+    footer {border-top:1px solid var(--stroke);font-size:11px;color:#87968a;padding:25px 0}
+    footer .container {display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    @media(max-width:1000px) {.hero-grid {grid-template-columns:1fr;gap:34px}.hero-map {max-width:720px}.method-grid {grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:640px) {
+      .container {width:calc(100% - 36px)}.nav-links a:not(.nav-back) {display:none}nav {height:63px}.brand {font-size:12px}
+      .hero {padding:59px 0 65px}.stats {grid-template-columns:1fr 1fr;margin-top:42px}.stat {padding:19px 12px}.stat:last-child {grid-column:1/-1;border-top:1px solid var(--stroke)}.stat + .stat {border-left:0}.stat:nth-child(2) {border-left:1px solid var(--stroke)}
+      .section {padding:65px 0}.method-grid {grid-template-columns:1fr}.method {min-height:0}.pdf-frame iframe {min-height:570px;height:72vh}.btn {width:100%}.last {padding:65px 0}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+  </style>
+</head>
+<body>
+  <nav><div class="container nav-content"><a class="brand" href="index.html">Marco van Winnendael</a><div class="nav-links"><a href="index.html#about">About</a><a href="index.html#contact">Contact</a><a href="index.html#work" class="nav-back">← Back to projects</a></div></div></nav>
+  <main>
+    <section class="hero"><div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Project 07 · GIS · Spatial Data</div>
+          <h1>Urban green areas in <em>The Hague</em></h1>
+          <p class="lede">An ArcGIS Pro study examining how green areas are distributed across the city, how neighbourhood coverage varies, and how those patterns relate to population density.</p>
+          <div class="meta"><span>ArcGIS Pro</span><span>Spatial analysis</span><span>Urban green space</span><span>Cartography</span></div>
+          <div class="actions"><a class="btn btn-main" href="#report">Read the full analysis ↓</a><a class="btn" href="the-hague-urban-green-areas.pdf" target="_blank" rel="noopener noreferrer">Open PDF ↗</a></div>
+        </div>
+        <figure class="hero-map"><img src="gis-the-hague-map.jpg" alt="Bivariate thematic map of green coverage and population density in The Hague, based on the report" width="920" height="690"><figcaption>Bivariate map from the report, combining green coverage and population density.</figcaption></figure>
+      </div>
+      <div class="stats"><div class="stat"><strong>114</strong><span>Neighbourhoods studied</span></div><div class="stat"><strong>111</strong><span>With published population data</span></div><div class="stat"><strong>0.28</strong><span>R² of the density and green coverage trend</span></div></div>
+    </div></section>
+    <section class="section"><div class="container">
+      <div class="eyebrow">The analysis</div><h2 class="section-heading">Mapping the green city.</h2>
+      <p class="section-intro">Using open data from CBS, PDOK and the Municipality of The Hague, I prepared spatial layers and created thematic maps in ArcGIS Pro. The report compares green cover and population density at neighbourhood scale, and looks at the amount of green space available per resident.</p>
+      <div class="method-grid">
+        <article class="method"><small>01 · SPATIAL DATA</small><h3>Green areas</h3><p>Combined municipal green space, major green corridors and coastal dune datasets into a citywide overview.</p></article>
+        <article class="method"><small>02 · OVERLAY ANALYSIS</small><h3>Green coverage</h3><p>Calculated the share of each neighbourhood covered by mapped green surfaces and classified results using Natural Breaks.</p></article>
+        <article class="method"><small>03 · POPULATION</small><h3>Density patterns</h3><p>Mapped inhabitants per square kilometre using official neighbourhood statistics, excluding suppressed values.</p></article>
+        <article class="method"><small>04 · VISUALIZATION</small><h3>Comparing variables</h3><p>Used green space per inhabitant, a bivariate map and a scatter plot to examine how the spatial patterns relate.</p></article>
+      </div>
+    </div></section>
+    <section class="section" id="report"><div class="container">
+      <div class="report-head"><div><div class="eyebrow">Complete project report · 15 pages</div><h2 class="section-heading">Explore the full GIS analysis.</h2></div><a class="btn" href="the-hague-urban-green-areas.pdf" download="Urban_Green_Areas_The_Hague.pdf">Download PDF ↓</a></div>
+      <p class="section-intro">Scroll through the original maps, data processing, methodology, visualizations, findings and references directly below. You can also open the report separately for a larger reading view.</p>
+      <div class="pdf-frame">
+        <div class="browser-bar" aria-hidden="true"><b></b><b></b><b></b><span class="browser-label">Urban green areas in The Hague · Complete report</span></div>
+        <iframe src="the-hague-urban-green-areas.pdf#view=FitH" title="The full 15 page GIS report on urban green areas in The Hague" loading="lazy"><p>This browser cannot embed PDFs. <a href="the-hague-urban-green-areas.pdf">Open the complete report.</a></p></iframe>
+        <div class="pdf-note"><span>All 15 pages · Scroll inside the document to continue reading.</span><a href="the-hague-urban-green-areas.pdf" target="_blank" rel="noopener noreferrer">Open full screen ↗</a></div>
+      </div>
+      <p class="insight"><strong>Key finding.</strong> The report found that neighbourhoods with higher population densities tended to have less mapped green coverage. The linear trend had an R² of 0.28, indicating that population density alone does not account for most differences in coverage.</p>
+    </div></section>
+    <section class="last"><div class="container"><div class="eyebrow">Spatial data visualization and analysis · 2026</div><h2>Understanding cities<br>through spatial data.</h2><div class="actions" style="justify-content:center"><a class="btn btn-main" href="the-hague-urban-green-areas.pdf" target="_blank" rel="noopener noreferrer">View the report ↗</a><a class="btn" href="index.html#work">Explore other projects ↑</a></div></div></section>
+  </main>
+  <footer><div class="container"><span>© 2026 Marco van Winnendael</span><span>GIS analysis · The Hague, Netherlands</span></div></footer>
+</body>
+</html>
