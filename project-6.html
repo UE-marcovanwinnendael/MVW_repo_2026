@@ -41,8 +41,14 @@
     .btn:hover {transform:translateY(-2px);border-color:var(--green)}
     .btn-main {background:var(--green);border-color:var(--green);color:#0b180b}
     .hero-map {margin:0;border:1px solid var(--stroke);border-radius:18px;overflow:hidden;background:#18231c;box-shadow:0 28px 70px rgba(0,0,0,.34)}
-    .hero-map img {display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain}
-    .hero-map figcaption {font-size:11px;color:#a9b9ae;padding:13px 18px}
+    .hero-map img {display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:#dfe5df}
+    .hero-map figcaption {padding:14px 18px;font-size:11px;color:#9eaca1;border-top:1px solid var(--stroke);background:#111712}
+    .hero-map figcaption a {color:#c7e6b9;text-decoration:none;border-bottom:1px solid rgba(199,230,185,.35)}
+    .report-teaser {padding:35px;display:flex;flex-direction:column;justify-content:center;min-height:390px;background:linear-gradient(150deg,#203a2b,#101912 68%,#0b100d)}
+    .teaser-label {font-size:10px;font-weight:700;letter-spacing:.18em;color:#b3dd9b;margin-bottom:22px}
+    .teaser-title {font:700 clamp(29px,3vw,42px)/1.16 'Playfair Display',Georgia,serif;color:#f5f4f0}
+    .report-teaser p {font-size:13px;color:#bbc8bc;line-height:1.85;max-width:370px;margin:25px 0 30px}
+    .teaser-link {text-decoration:none;align-self:start;color:#b9e3a8;border-bottom:1px solid rgba(185,227,168,.5);padding-bottom:5px;font-size:13px;font-weight:600}
     .stats {display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:63px;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke)}
     .stat {padding:24px;text-align:center}
     .stat + .stat {border-left:1px solid var(--stroke)}
@@ -91,9 +97,12 @@
           <h1>Urban green areas in <em>The Hague</em></h1>
           <p class="lede">An ArcGIS Pro study examining how green areas are distributed across the city, how neighbourhood coverage varies, and how those patterns relate to population density.</p>
           <div class="meta"><span>ArcGIS Pro</span><span>Spatial analysis</span><span>Urban green space</span><span>Cartography</span></div>
-          <div class="actions"><a class="btn btn-main" href="#report">Read the full analysis ↓</a><a class="btn" href="the-hague-urban-green-areas.pdf" target="_blank" rel="noopener noreferrer">Open PDF ↗</a></div>
+          <div class="actions"><a class="btn btn-main" href="#report">Read the full analysis ↓</a><a class="btn" href="Urban green areas in The Hague MVW Final.pdf" target="_blank" rel="noopener noreferrer">Open PDF ↗</a></div>
         </div>
-        <figure class="hero-map"><img src="gis-the-hague-map.jpg" alt="Bivariate thematic map of green coverage and population density in The Hague, based on the report" width="920" height="690"><figcaption>Bivariate map from the report, combining green coverage and population density.</figcaption></figure>
+        <figure class="hero-map" aria-label="Cover photo of The Hague">
+          <img src="the-hague-city-cover.png" alt="Skyline and city square in The Hague">
+          <figcaption><em>Het Plein, The Hague.</em> Photo by <a href="https://commons.wikimedia.org/wiki/File:Het_Plein,_Den_Haag.JPG" target="_blank" rel="noopener noreferrer">Zairon</a>, via Wikimedia Commons, CC BY-SA 4.0.</figcaption>
+        </figure>
       </div>
       <div class="stats"><div class="stat"><strong>114</strong><span>Neighbourhoods studied</span></div><div class="stat"><strong>111</strong><span>With published population data</span></div><div class="stat"><strong>0.28</strong><span>R² of the density and green coverage trend</span></div></div>
     </div></section>
@@ -108,16 +117,16 @@
       </div>
     </div></section>
     <section class="section" id="report"><div class="container">
-      <div class="report-head"><div><div class="eyebrow">Complete project report · 15 pages</div><h2 class="section-heading">Explore the full GIS analysis.</h2></div><a class="btn" href="the-hague-urban-green-areas.pdf" download="Urban_Green_Areas_The_Hague.pdf">Download PDF ↓</a></div>
+      <div class="report-head"><div><div class="eyebrow">Complete project report · 15 pages</div><h2 class="section-heading">Explore the full GIS analysis.</h2></div><a class="btn" href="Urban green areas in The Hague MVW Final.pdf" download="Urban_Green_Areas_The_Hague.pdf">Download PDF ↓</a></div>
       <p class="section-intro">Scroll through the original maps, data processing, methodology, visualizations, findings and references directly below. You can also open the report separately for a larger reading view.</p>
       <div class="pdf-frame">
         <div class="browser-bar" aria-hidden="true"><b></b><b></b><b></b><span class="browser-label">Urban green areas in The Hague · Complete report</span></div>
-        <iframe src="the-hague-urban-green-areas.pdf#view=FitH" title="The full 15 page GIS report on urban green areas in The Hague" loading="lazy"><p>This browser cannot embed PDFs. <a href="the-hague-urban-green-areas.pdf">Open the complete report.</a></p></iframe>
-        <div class="pdf-note"><span>All 15 pages · Scroll inside the document to continue reading.</span><a href="the-hague-urban-green-areas.pdf" target="_blank" rel="noopener noreferrer">Open full screen ↗</a></div>
+        <iframe src="Urban green areas in The Hague MVW Final.pdf#view=FitH" title="The full 15 page GIS report on urban green areas in The Hague" loading="lazy"><p>This browser cannot embed PDFs. <a href="Urban green areas in The Hague MVW Final.pdf">Open the complete report.</a></p></iframe>
+        <div class="pdf-note"><span>All 15 pages · Scroll inside the document to continue reading.</span><a href="Urban green areas in The Hague MVW Final.pdf" target="_blank" rel="noopener noreferrer">Open full screen ↗</a></div>
       </div>
       <p class="insight"><strong>Key finding.</strong> The report found that neighbourhoods with higher population densities tended to have less mapped green coverage. The linear trend had an R² of 0.28, indicating that population density alone does not account for most differences in coverage.</p>
     </div></section>
-    <section class="last"><div class="container"><div class="eyebrow">Spatial data visualization and analysis · 2026</div><h2>Understanding cities<br>through spatial data.</h2><div class="actions" style="justify-content:center"><a class="btn btn-main" href="the-hague-urban-green-areas.pdf" target="_blank" rel="noopener noreferrer">View the report ↗</a><a class="btn" href="index.html#work">Explore other projects ↑</a></div></div></section>
+    <section class="last"><div class="container"><div class="eyebrow">Spatial data visualization and analysis · 2026</div><h2>Understanding cities<br>through spatial data.</h2><div class="actions" style="justify-content:center"><a class="btn btn-main" href="Urban green areas in The Hague MVW Final.pdf" target="_blank" rel="noopener noreferrer">View the report ↗</a><a class="btn" href="index.html#work">Explore other projects ↑</a></div></div></section>
   </main>
   <footer><div class="container"><span>© 2026 Marco van Winnendael</span><span>GIS analysis · The Hague, Netherlands</span></div></footer>
 </body>
