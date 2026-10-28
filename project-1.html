@@ -89,11 +89,14 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:cen
 
 /* TOOLS */
 .tools-section{background:rgba(245,244,240,.02);border-top:.5px solid rgba(245,244,240,.06);border-bottom:.5px solid rgba(245,244,240,.06);}
-.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+.tools-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;}
 .tool-item{padding:40px 28px;text-align:center;border-right:.5px solid rgba(245,244,240,.06);}
 .tool-item:last-child{border-right:none;}
 .tool-name{font-size:13px;font-weight:500;color:var(--white);margin-bottom:6px;}
 .tool-role{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+
+@media (max-width:900px){.tools-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:480px){.tools-grid{grid-template-columns:1fr;}}
 
 /* PROJECT NAV */
 .proj-nav{display:flex;justify-content:space-between;align-items:center;padding:60px 80px 80px;border-top:.5px solid rgba(245,244,240,.07);position:relative;z-index:10;}
@@ -134,12 +137,13 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:cen
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-badge">Unreal Engine · API · Lisbon</div>
+    <div class="hero-badge">Unreal Engine · Cesium · API · Lisbon</div>
     <h1 class="hero-title">Off<br><em>The</em><br>Leash</h1>
     <div class="hero-year">Metropolitan Lisbon, Portugal</div>
     <p class="hero-desc">An interactive 3D map app connecting dog owners to off-leash zones, trails and parks across Lisbon, Portugal — built with real geodata and live API integration.</p>
     <div class="hero-tags">
       <span class="hero-tag">Unreal Engine</span>
+      <span class="hero-tag">Cesium</span>
       <span class="hero-tag">API Integration</span>
       <span class="hero-tag">Interactive Map</span>
       <span class="hero-tag">UX Design</span>
@@ -211,9 +215,15 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:cen
 </div>
 <div style="position:relative;z-index:10;padding:0 0 120px;">
   <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:1100px;margin:0 auto;border-radius:16px;box-shadow:0 40px 100px rgba(0,0,0,.6);border:.5px solid rgba(245,244,240,.08);">
-    <video style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" autoplay muted loop playsinline>
-      <source src="Off_The_Leash_Demo_vid_1_.mp4" type="video/mp4">
-    </video>
+
+    <iframe
+      src="https://www.youtube.com/embed/euUGrYjSlVU"
+      title="Off The Leash — Project Demo"
+      style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+      loading="lazy"></iframe>
   </div>
 </div>
 
@@ -240,6 +250,7 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:cen
     <div class="section-label reveal">Built with</div>
     <div class="tools-grid">
       <div class="tool-item reveal d1"><div class="tool-name">Unreal Engine</div><div class="tool-role">3D Map & App Engine</div></div>
+      <div class="tool-item reveal d2"><div class="tool-name">Cesium</div><div class="tool-role">Geospatial 3D Map</div></div>
       <div class="tool-item reveal d2"><div class="tool-name">API Integration</div><div class="tool-role">Live Geospatial Data</div></div>
       <div class="tool-item reveal d3"><div class="tool-name">Figma</div><div class="tool-role">UI Design & Prototyping</div></div>
       <div class="tool-item reveal d4"><div class="tool-name">UX Research</div><div class="tool-role">Community & User Testing</div></div>
