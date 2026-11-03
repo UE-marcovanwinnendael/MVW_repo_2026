@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IKAF – What The Floor?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;800;900&family=Bowlby+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#3e3ecf; --yellow:#fef021; --green:#a1db15; --ink:#1d1e6b; --white:#fff;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--blue);color:var(--yellow);font-family:Rubik,system-ui,sans-serif;line-height:1.5;overflow-x:hidden}
+h1,h2,h3{font-family:'Bowlby One',Rubik,Impact,sans-serif;font-weight:400;line-height:.95;margin:0;text-transform:uppercase}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 clamp(18px,5vw,48px)}
+
+/* HERO: title steps down a staircase */
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;padding:60px 0 80px}
+.stair{position:relative;display:grid;gap:0}
+.stair h1{font-size:clamp(3.4rem,15vw,10.5rem);color:var(--yellow);letter-spacing:-.01em}
+.stair .l1{margin-left:0}
+.stair .l2{margin-left:clamp(20px,9vw,130px)}
+.stair .l3{margin-left:clamp(40px,18vw,260px)}
+.stair .rule{height:clamp(6px,1vw,10px);background:var(--yellow);margin:.6rem 0 .5rem;width:clamp(120px,22vw,300px)}
+.stair .q{color:var(--green)}
+.tag{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:36px;font-weight:800;font-size:clamp(1rem,2.4vw,1.35rem)}
+.pill{background:var(--green);color:var(--blue);padding:.35em .9em;border-radius:99px;font-weight:900;transform:rotate(-2deg);display:inline-block}
+.face{position:absolute;right:2%;top:12%;width:clamp(90px,20vw,230px);animation:wob 3.2s ease-in-out infinite}
+@keyframes wob{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(10deg)}}
+@media (prefers-reduced-motion:reduce){.face{animation:none}html{scroll-behavior:auto}}
+
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.logo{display:block;width:min(100%,820px);height:auto;margin:0 0 0 -2%}
+.hero{background:var(--blue)}
+/* bands */
+.band{padding:clamp(56px,9vw,110px) 0}
+.yel{background:var(--yellow);color:var(--blue)}
+.grn{background:var(--green);color:var(--blue)}
+.band h2{font-size:clamp(2.2rem,7vw,4.6rem);margin-bottom:28px}
+.lead{font-size:clamp(1.15rem,2.6vw,1.6rem);font-weight:800;max-width:30ch;margin:0 0 18px}
+p{max-width:62ch;margin:0 0 1em;font-size:1.05rem}
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,64px);align-items:center}
+@media(max-width:780px){.split{grid-template-columns:1fr}}
+
+/* Twister */
+.twister{margin:0;text-align:center}.twister img{width:min(100%,380px);height:auto;border:4px solid var(--blue);border-radius:6px;display:block;margin:0 auto}.twister figcaption,.fig figcaption{font-size:.9rem;font-weight:500;margin-top:10px}
+
+.meet{font-weight:900;font-size:clamp(1rem,2vw,1.2rem);margin-bottom:8px}
+.name{font-family:'Bowlby One',Impact,sans-serif;font-size:clamp(3rem,12vw,7rem);line-height:.9;text-transform:uppercase;margin:0 0 18px}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.tags li{background:var(--blue);color:var(--yellow);padding:.3em .8em;border-radius:99px;font-weight:800;font-size:.95rem}
+.tags li:nth-child(even){background:var(--yellow);color:var(--blue);outline:2px solid var(--blue)}
+
+.tower{list-style:none;margin:0;padding:0;display:grid;gap:6px;max-width:640px}
+.fl{display:grid;grid-template-columns:1fr 52px;gap:10px;align-items:stretch}
+.rooms{display:flex;gap:6px}
+.rooms span{flex:1;background:var(--green);border:3px solid var(--blue);border-radius:4px;padding:.55em .7em;text-align:center;font-weight:800;font-size:clamp(.9rem,2.4vw,1.15rem);color:var(--blue)}
+.lvl{background:var(--blue);color:var(--yellow);border-radius:4px;display:grid;place-content:center;font-family:'Bowlby One',Impact,sans-serif;font-size:1.2rem}
+.rooms span:hover{background:var(--white)}
+.sw{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 28px}
+@media(max-width:780px){.sw{grid-template-columns:1fr}}
+.sw div{border-radius:6px;padding:46px 18px 16px;font-weight:800;border:3px solid var(--yellow)}
+.sw b{display:block;font-family:'Bowlby One',Impact,sans-serif;font-weight:400;font-size:1.4rem;text-transform:uppercase}
+.sw .c1{background:#3e3ecf;color:#fef021}.sw .c2{background:#fef021;color:#3e3ecf}.sw .c3{background:#a1db15;color:#3e3ecf}
+.pairs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 28px}
+@media(max-width:780px){.pairs{grid-template-columns:repeat(2,1fr)}}
+.pair{border-radius:6px;padding:16px 12px;font-weight:900;font-size:1.5rem;text-align:center;line-height:1.1;border:3px solid var(--yellow)}
+.pair small{display:block;font-weight:500;font-size:.8rem;margin-top:6px}
+.p1{background:#3e3ecf;color:#fef021}.p2{background:#3e3ecf;color:#a1db15}.p3{background:#fef021;color:#3e3ecf}.p4{background:#a1db15;color:#3e3ecf}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:780px){.rules{grid-template-columns:1fr}}
+.rules h3{font-size:1.3rem;margin-bottom:8px;color:var(--green)}
+.rules p{color:var(--white);font-size:.98rem;margin:0}
+.shot{width:100%;height:auto;display:block;border:4px solid var(--blue);border-radius:6px}#team .shot{border-color:var(--yellow)}.pal{grid-template-columns:repeat(3,1fr)!important;margin:0!important}.pal div{padding:30px 12px 12px!important;font-size:.85rem}.pal b{font-size:1.05rem!important}
+.pose{display:block;height:auto;position:relative;z-index:2}
+#about .wrap{position:relative}
+.wave{width:clamp(130px,19vw,230px);margin:18px 0 0}
+@media(min-width:900px){.wave{position:absolute;right:clamp(10px,3vw,40px);bottom:-70px;margin:0;width:clamp(170px,19vw,240px)}}
+.lie{width:clamp(190px,36vw,360px);margin:6px 0 -5px auto}
+.plogo{display:block;width:min(70%,260px);height:auto;margin:0 0 18px}
+.pcs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0}
+@media(max-width:900px){.pcs{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.pcs{grid-template-columns:1fr}}
+.pc{background:var(--blue);color:var(--yellow);border-radius:6px;padding:18px}
+.pc h3{font-size:1.15rem;margin-bottom:8px}
+.pc p{color:var(--white);font-size:.95rem;margin:0 0 .6em}
+.pc a{color:var(--green);font-weight:800}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:900px){.gal{grid-template-columns:repeat(2,1fr)}}
+.g{all:unset;box-sizing:border-box;cursor:zoom-in;display:block;border:3px solid var(--blue);border-radius:6px;overflow:hidden;background:var(--yellow)}
+.g:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.g img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top}
+.g span{display:block;padding:8px 10px;font-weight:800;font-size:.85rem;color:var(--blue);background:var(--yellow)}
+.dl{margin-top:30px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;background:var(--yellow);border:3px solid var(--blue);border-radius:6px;padding:20px 22px}
+.dl b{display:block;font-family:'Bowlby One',Impact,sans-serif;font-weight:400;font-size:1.4rem;text-transform:uppercase}
+.dl span{font-weight:500}
+.dlb{background:var(--blue);color:var(--yellow);font-size:1rem}.dlb:hover{background:var(--ink)}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(20,20,80,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(20px + env(safe-area-inset-top,0px)) 16px calc(20px + env(safe-area-inset-bottom,0px))}
+.lb[hidden]{display:none}
+.lb img{max-width:100%;max-height:80vh;border-radius:6px;background:#fff}
+.lb p{color:var(--yellow);font-weight:800;margin:12px 0 0}
+.lbx{font:inherit;font-weight:900;background:var(--yellow);color:var(--blue);border:0;border-radius:99px;padding:.5em 1.2em;cursor:pointer;margin-bottom:14px}
+.flogos{display:flex;flex-wrap:wrap;gap:28px 40px;align-items:center}
+.flogos img{height:auto;max-width:100%}
+.sw4{grid-template-columns:repeat(4,1fr)!important;margin-bottom:8px!important}
+@media(max-width:780px){.sw4{grid-template-columns:repeat(2,1fr)!important}}
+.sw4 div{padding:46px 14px 14px!important;font-size:.9rem}.sw4 b{font-size:1.1rem!important}
+.note{color:var(--white);margin:0 0 6px}
+.tw{overflow-x:auto}
+.jt{border-collapse:collapse;width:100%;min-width:640px;background:var(--yellow);color:var(--blue);border:3px solid var(--blue)}
+.jt th,.jt td{text-align:left;padding:12px 14px;vertical-align:top;border-bottom:2px solid var(--blue);font-size:.98rem}
+.jt thead th{background:var(--blue);color:var(--yellow);font-family:'Bowlby One',Impact,sans-serif;font-weight:400;text-transform:uppercase}
+.jt tbody th{font-weight:900;white-space:nowrap}
+.vframe{border:4px solid var(--blue);border-radius:6px;overflow:hidden;background:#000;max-width:960px}
+#bts .vframe{border-color:var(--blue)}
+.vframe video{display:block;width:100%;height:auto;aspect-ratio:16/9}
+.yt{display:grid;place-content:center;justify-items:center;gap:14px;aspect-ratio:16/9;background:var(--ink);border:4px solid var(--yellow);border-radius:6px;color:var(--yellow);text-decoration:none}
+.yt:hover{background:var(--blue)}
+.yt b{font-family:'Bowlby One',Impact,sans-serif;font-weight:400;text-transform:uppercase;font-size:1.1rem}
+.play{width:0;height:0;border-left:44px solid var(--yellow);border-top:28px solid transparent;border-bottom:28px solid transparent;margin-left:12px}
+.yf{aspect-ratio:16/9;width:100%}
+.yt{width:100%;font:inherit;cursor:pointer}
+.yf iframe{width:100%;height:100%;border:4px solid var(--yellow);border-radius:6px;display:block;background:#000}
+.vid p a{color:var(--yellow);font-weight:800}
+/* videos */
+.vids{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,36px)}
+@media(max-width:780px){.vids{grid-template-columns:1fr}}
+.vid h3{font-size:1.5rem;color:var(--yellow);margin-bottom:12px}
+.frame{position:relative;aspect-ratio:16/9;background:var(--ink);border:4px solid var(--yellow);border-radius:6px;overflow:hidden}
+.frame video{width:100%;height:100%;object-fit:cover;display:block}
+.empty{position:absolute;inset:0;display:grid;place-content:center;gap:12px;text-align:center;padding:16px;color:var(--yellow)}
+.empty b{font-family:'Bowlby One',Impact,sans-serif;font-weight:400;font-size:1.3rem;text-transform:uppercase}
+.empty span{font-size:.9rem;color:var(--white);opacity:.85}
+.btn{display:inline-block;text-decoration:none;font:inherit;font-weight:900;background:var(--green);color:var(--blue);border:0;border-radius:99px;padding:.6em 1.3em;cursor:pointer;justify-self:center}
+.btn:hover{background:var(--yellow)}
+.vid p{margin:10px 0 0;color:var(--white);font-size:.95rem}
+
+/* process */
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+@media(max-width:780px){.tools{grid-template-columns:1fr}}
+.tool{background:var(--blue);color:var(--yellow);padding:22px;border-radius:6px}
+.tool:nth-child(2){margin-top:22px}.tool:nth-child(3){margin-top:44px}
+@media(max-width:780px){.tool:nth-child(n){margin-top:0}}
+.tool h3{font-size:1.5rem;margin-bottom:8px}
+.tool p{margin:0;color:var(--white);font-size:.98rem}
+
+/* setup */
+.sketch{margin:0}.sketch img{width:100%;height:auto;display:block;border:4px solid var(--blue);border-radius:6px;background:#000}.sketch figcaption{font-size:.9rem;margin-top:10px;font-weight:500}.setup .tags{margin-top:8px}.proj{display:flex;gap:10px;align-items:flex-end;margin:10px 0 24px}
+.proj i{display:block;flex:1;background:var(--yellow);border:3px solid var(--blue);border-radius:4px 4px 0 0}
+.proj i:nth-child(1){height:60px}.proj i:nth-child(2){height:100px}.proj i:nth-child(3){height:140px}
+
+footer{padding:56px 0 64px;text-align:left}
+footer .big{font-family:'Bowlby One',Impact,sans-serif;font-size:clamp(2rem,8vw,5rem);text-transform:uppercase;line-height:.95;color:var(--yellow)}
+footer small{display:block;margin-top:18px;color:var(--green);font-weight:800;font-size:1rem}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1 class="sr">What The Floor?</h1>
+    <img class="logo" src="assets/img/what-the-floor-logo.png" alt="What The Floor? logo" width="900" height="502">
+    <div class="tag">
+      <span class="pill">WTF</span>
+      <span>A projection-mapping journey through the floors of IADE, by IKAF*</span>
+      <a class="pill" href="#trailer" style="text-decoration:none;transform:rotate(2deg)">Watch the trailer</a>
+    </div>
+  </div>
+  
+</header>
+
+<section class="band grn" id="trailer">
+  <div class="wrap">
+    <h2>The trailer</h2>
+    <p class="lead">45 seconds of chaos, stairs and one very late student.</p>
+    <div class="vframe"><video controls playsinline preload="metadata" poster="assets/img/trailer-poster.jpg"><source src="assets/video/WTF-Trailer.mp4" type="video/mp4">Your browser cannot play this video.</video></div>
+  </div>
+</section>
+
+<section class="band yel" id="about">
+  <div class="wrap">
+    <h2>A crazy journey</h2>
+    <p class="lead">Every step is packed with the best of what silliness and humor can do.</p>
+    <p>Twister rushes into IADE, late and with no idea where the class is. The elevators are out of order, so the only way is up the stairs. Each floor throws a new challenge, surreal twist or nostalgic reference at them, all taken from real life in the building.</p>
+    <p>The journey ends with a message: <strong>every step leads to new beginnings</strong>, as the old building turns into the new campus.</p>
+    <img class="pose wave" src="assets/img/twister-waving-hello.png" alt="Twister waving hello" width="360" height="731">
+  </div>
+</section>
+
+<section class="band grn" id="twister">
+  <div class="wrap split">
+    <div>
+      <div class="meet">Meet…</div>
+      <div class="name">Twister</div>
+      <p class="lead">Your silly, clumsy but lovable, charismatic new friend.</p>
+      <p>Twister is a student at IADE with their head in the clouds and a talent for tripping. They are genderless, and the name was picked to carry the feeling of confusion and messiness the animation brings. Anyone should be able to see a bit of themselves in Twister.</p>
+      <p>Twister wears IADE’s typical <strong>Tuna</strong> outfit, with its kilt, a typical dress in Portugal. The pan on the head is a nod to the <strong>ontgroening</strong> (hazing rituals) that new students go through.</p>
+      <ul class="tags">
+        <li>Clumsy</li><li>Lovable</li><li>Charismatic</li><li>Tuna outfit</li><li>Pan on head</li>
+      </ul>
+    </div>
+    <figure class="twister"><img src="assets/img/the-3d-printed-twister-figure-in-front-of-.jpg" alt="The 3D-printed Twister figure in front of his limited-edition box" width="760" height="1013"><figcaption>The real 3D-printed Twister, limited edition 01.</figcaption></figure>
+  </div>
+</section>
+
+<section class="band yel" id="floors">
+  <div class="wrap split">
+    <div>
+      <h2>Every floor is real</h2>
+      <p class="lead">Each floor is a real place in the IADE building.</p>
+      <p>Every level Twister tumbles through is based on a real scenario and a real experience from daily life at the university, from the cafeteria to the Coordinators’ Room. If you have studied at IADE, you will recognize them.</p>
+    </div>
+    <ol class="tower" aria-label="IADE building floors, from floor 7 down to floor -1">
+      <li class="fl"><div class="rooms"><span>Coordinators’ Room</span></div><div class="lvl">7</div></li>
+      <li class="fl"><div class="rooms"><span>IT Room</span><span>Library</span></div><div class="lvl">6</div></li>
+      <li class="fl"><div class="rooms"><span>International Office</span></div><div class="lvl">5</div></li>
+      <li class="fl"><div class="rooms"><span>Radio / Sound Studio</span></div><div class="lvl">4</div></li>
+      <li class="fl"><div class="rooms"><span>Factory</span></div><div class="lvl">3</div></li>
+      <li class="fl"><div class="rooms"><span>Tuna Room</span><span>Scholarship Office</span></div><div class="lvl">2</div></li>
+      <li class="fl"><div class="rooms"><span>3D Lab</span><span>Tech Lab</span></div><div class="lvl">1</div></li>
+      <li class="fl"><div class="rooms"><span>Lounge</span><span>Cafeteria</span></div><div class="lvl">G/F</div></li>
+      <li class="fl"><div class="rooms"><span>UX Lab</span><span>Photography Studio</span></div><div class="lvl">-1</div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band grn" id="journey">
+  <div class="wrap">
+    <h2>Floor by floor</h2>
+    <p class="lead">The story climbs the stairs. So does the box.</p>
+    <p>The box in front of the elevator model changes with every floor, so the projection can use both the wall and the object.</p>
+    <div class="tw"><table class="jt"><thead><tr><th>Floor</th><th>What happens</th><th>The box becomes</th></tr></thead><tbody><tr><th scope="row">Ground floor</th><td>Twister rushes in late. The elevators are out of order, so it is the stairs.</td><td>The IADE building, lighting up floor by floor</td></tr><tr><th scope="row">1st floor: Tech Lab</th><td>A peek into the lab with VR glasses and drones, then a Pac-Man chase down the hall.</td><td>A mini-map of the maze</td></tr><tr><th scope="row">2nd floor: Tuna show</th><td>Twister gets caught in a jam session of Tuna members.</td><td>A drum with a Tuna member playing</td></tr><tr><th scope="row">3rd floor: The Factory</th><td>A stern professor, a stumble onto a printer, and Twister changes dimension.</td><td>A printer</td></tr><tr><th scope="row">4th floor: Green Screen Room</th><td>Twister falls into mud and a tropical rainforest appears.</td><td>A mini-map of the rainforest</td></tr><tr><th scope="row">5th floor: Sketch Room and IT</th><td>Students sketch Twister into strange shapes; the IT room restores them.</td><td>A blueprint of Twister’s 2D body</td></tr><tr><th scope="row">6th floor: Library</th><td>Floating pages and a retro TV where IADE’s founder, Antonio Quadros, asks why Twister is here.</td><td>A retro TV</td></tr><tr><th scope="row">7th floor: Final steps</th><td>Twister opens the last door and the old building becomes the new campus.</td><td>The old building, then the new campus</td></tr></tbody></table></div>
+  </div>
+</section>
+
+<section class="band" id="films">
+  <div class="wrap">
+    <h2 style="color:var(--yellow)">The final result</h2>
+    <p style="color:var(--white)">The finished projection, filmed from two different angles. Press play to watch them here.</p>
+    <img class="pose lie" src="assets/img/twister-lying-down-leaning-on-his-elbow.png" alt="Twister lying down, leaning on his elbow" width="620" height="364">
+    <div class="vids"><article class="vid"><h3>Angle 1</h3><div class="yf"><button class="yt yp" type="button" data-v="sLll4hWpfa0" data-t="Angle 1"><span class="play" aria-hidden="true"></span><b>Play video</b></button></div><p>Final render, first angle. <a href="https://youtu.be/sLll4hWpfa0" target="_blank" rel="noopener">Open on YouTube</a></p></article><article class="vid"><h3>Angle 2</h3><div class="yf"><button class="yt yp" type="button" data-v="cxx_GFKSuQA" data-t="Angle 2"><span class="play" aria-hidden="true"></span><b>Play video</b></button></div><p>Final render, second angle. <a href="https://youtu.be/cxx_GFKSuQA" target="_blank" rel="noopener">Open on YouTube</a></p></article></div>
+  </div>
+</section>
+
+<section class="band yel" id="process">
+  <div class="wrap">
+    <h2>How we made it</h2>
+    <div class="tools">
+      <div class="tool"><h3>Figma</h3><p>Layouts, the UV template for the projection surface and all our color tests.</p></div>
+      <div class="tool"><h3>Blender</h3><p>The 3D environments and Twister. We even modelled part of the IADE staircase from real measurements. Unreal Engine was used for a few sets.</p></div>
+      <div class="tool"><h3>After Effects</h3><p>Compositing, motion graphics and the final render for projection.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="design">
+  <div class="wrap">
+    <h2>Designed by the rules</h2>
+    <p style="color:var(--white)">The What The Floor? identity has its own palette, logo rules, patterns and typefaces, and every color was tested on a projector.</p>
+    <div class="sw sw4"><div style="background:#FF2A1A;color:#fff"><b>Chair Red</b>#FF2A1A</div><div style="background:#A1DB15;color:#3e3ecf"><b>Spirit Green</b>#A1DB15</div><div style="background:#FEF021;color:#3e3ecf"><b>Twister’s Spark</b>#FEF021</div><div style="background:#3E3ECF;color:#FEF021"><b>Kilt Blue</b>#3E3ECF</div></div>
+    <p class="note">Plus white <b>#FFFFFF</b> and Deep Gray <b>#1A1A1A</b>.</p>
+    <h3 style="color:var(--yellow);margin:22px 0 14px">Color pairings</h3>
+    <div class="pairs">
+      <div class="pair p1">Aa<small>Yellow on blue 6.3:1</small></div>
+      <div class="pair p2">Aa<small>Green on blue 4.5:1</small></div>
+      <div class="pair p3">Aa<small>Blue on yellow 6.3:1</small></div>
+      <div class="pair p4">Aa<small>Blue on green 4.5:1</small></div>
+    </div>
+    <div class="rules">
+      <div><h3>Typography</h3><p><b>Nudgewink</b> is the playful, slightly misaligned main typeface. <b>Impact</b> works where space is narrow, since it is tall. <b>SFT Schrifted Sans</b> is for long, readable text.</p></div>
+      <div><h3>Logo rules</h3><p>Only recommended color pairings, never stretched, flipped, with effects or with gradients. The question mark sets the spacing.</p></div>
+      <div><h3>Projection tests</h3><p>We tested images on two projectors and calibrated for the weaker one. Light yellows read as white, similar shades blur together, and bright colors need strong contrast.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band grn" id="setup">
+  <div class="wrap">
+    <h2>Projection mapping</h2>
+    <p class="lead">3 projectors. 1 uneven surface. 2 videos at once.</p>
+    <div class="split setup">
+      <div>
+        <p>WTF was first meant for the entrance of the university. That turned out not to be possible, so we projected onto a <strong>1:2 scale model of the real elevator doors</strong>, almost identical in shape to the real thing.</p>
+        <p>The difficulty was designing and animating for such a strange format. We unwrapped the 3D model and built a UV template in Figma, and since the doors are dark, we used bright colors so the light would not be absorbed.</p>
+        <p>The piece is actually <strong>two videos playing at the same time</strong>: one for the elevator wall and one for the box in the corner, which represents the IADE building. The box is a hollow cuboid made from 3 mm foam board, 550 × 250 × 100 mm.</p>
+        <ul class="tags">
+          <li>3 projectors</li><li>2 simultaneous videos</li><li>1:2 scale elevator model</li><li>Tested on the 3rd floor of IADE</li>
+        </ul>
+      </div>
+      <figure class="sketch">
+        <img src="assets/img/setup-sketch-three-projectors-on-tables-fa.jpg" alt="Setup sketch: three projectors on tables, facing the elevator model and the object box. Distances: 330 cm, 272 cm and 324 cm. The wall is 240 cm wide." width="1200" height="1000">
+        <figcaption>The setup sketch: projector 1 (330 cm), projector 3 (272 cm) and projector 2 (324 cm) aimed at the elevator model and the object.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band yel" id="bts">
+  <div class="wrap">
+    <h2>Behind the scenes</h2>
+    <p class="lead">Mess, models and a lot of testing.</p>
+    <div class="vframe"><video controls playsinline preload="metadata" poster="assets/img/bts-poster.jpg"><source src="assets/video/WTF-BTS.mp4" type="video/mp4">Your browser cannot play this video.</video></div>
+  </div>
+</section>
+
+<section class="band grn" id="behind">
+  <div class="wrap">
+    <h2>The concept book</h2>
+    <p class="lead">Everything we did, in 254 pages.</p>
+    <p>Our production dossier documents the whole project: the studio brand, the What The Floor? identity, characters and environments, the narrative and storyboards, the projection studies, the promotional campaign and a digital kiosk idea. A few pages:</p>
+    <div class="gal"><button class="g" type="button"><img src="assets/img/color-palette.jpg" alt="Color palette" loading="lazy"><span>Color palette</span></button><button class="g" type="button"><img src="assets/img/stair-pattern.jpg" alt="Stair pattern" loading="lazy"><span>Stair pattern</span></button><button class="g" type="button"><img src="assets/img/typography.jpg" alt="Typography" loading="lazy"><span>Typography</span></button><button class="g" type="button"><img src="assets/img/twister-s-concept-art.jpg" alt="Twister's concept art" loading="lazy"><span>Twister's concept art</span></button><button class="g" type="button"><img src="assets/img/twister-s-final-3d-model.jpg" alt="Twister's final 3D model" loading="lazy"><span>Twister's final 3D model</span></button><button class="g" type="button"><img src="assets/img/environment-concept-art.jpg" alt="Environment concept art" loading="lazy"><span>Environment concept art</span></button><button class="g" type="button"><img src="assets/img/environment-template-renders.jpg" alt="Environment template renders" loading="lazy"><span>Environment template renders</span></button><button class="g" type="button"><img src="assets/img/prototype-and-projection-preview.jpg" alt="Prototype and projection preview" loading="lazy"><span>Prototype and projection preview</span></button><button class="g" type="button"><img src="assets/img/unwrapping-and-uv-mapping.jpg" alt="Unwrapping and UV mapping" loading="lazy"><span>Unwrapping and UV mapping</span></button><button class="g" type="button"><img src="assets/img/projection-calculations.jpg" alt="Projection calculations" loading="lazy"><span>Projection calculations</span></button><button class="g" type="button"><img src="assets/img/building-the-object.jpg" alt="Building the object" loading="lazy"><span>Building the object</span></button><button class="g" type="button"><img src="assets/img/projection-color-testing.jpg" alt="Projection color testing" loading="lazy"><span>Projection color testing</span></button></div>
+    <div class="dl">
+      <div><b>Concept book</b><span>IKAF* studio’s production dossier, PDF, 254 pages.</span></div>
+      <a class="btn dlb" href="assets/docs/IKAF-Studio-Concept-Book.pdf" download>Download PDF</a>
+    </div>
+  </div>
+</section>
+
+<section class="band yel" id="poster">
+  <div class="wrap split">
+    <figure class="fig" style="margin:0"><img class="shot" src="assets/img/the-what-the-floor-poster-twister-running-.jpg" alt="The What The Floor? poster: Twister running past red elevator doors, with a yellow staircase above and a blue floor below" width="820" height="1159"></figure>
+    <div>
+      <h2>The poster</h2>
+      <p class="lead">Twister on the run, floor by floor.</p>
+      <p>The poster follows the same rules as the projection: the stair-step title, bold flat color blocks and the elevator doors Twister keeps missing.</p>
+      
+    </div>
+  </div>
+</section>
+
+<section class="band" id="promo" style="background:var(--white);color:var(--blue)">
+  <div class="wrap">
+    <img class="plogo" src="assets/img/what-the-floor-logo-2.png" alt="What The Floor? logo" width="300">
+    <h2>Promotional campaign</h2>
+    <p class="lead">Quirky but professional, playful but strategic.</p>
+    <p>To promote the videomapping show we built a campaign that connects everything we made. It aims at IADE students, the wider IADE community (alumni and staff) and the creative scene, and it teases the story just enough to build curiosity.</p>
+    <div class="pcs"><div class="pc"><h3>Interactive and printed poster</h3><p>The poster also lives as an interactive Unity scene, where Twister runs through the three floors and stumbles on the middle one.</p><p><a href="https://giuliana-cg.itch.io/what-the-floor-poster" target="_blank" rel="noopener">Play the interactive poster</a></p></div><div class="pc"><h3>Social media</h3><p>Short looping posts, carousels like Spot the Twister, What the Color? and What the Team?, plus behind-the-scenes stories on @whatthefloor.mp4.</p></div><div class="pc"><h3>On site at IADE</h3><p>Playful installations inside the building, like stickers on the stair steps, so the promotion feels like part of the animation.</p></div><div class="pc"><h3>Merchandise</h3><p>A themed sticker album with one double page per floor, mystery packs hidden around IADE, T-shirts, and the 3D-printed Twister collectible made with the 3D Lab.</p></div></div>
+    <div class="gal" id="gal"><button class="g" type="button" data-i="0"><img src="assets/img/interactive-and-printed-poster.jpg" alt="Interactive and printed poster" loading="lazy"><span>Interactive and printed poster</span></button><button class="g" type="button" data-i="1"><img src="assets/img/instagram-posts.jpg" alt="Instagram posts" loading="lazy"><span>Instagram posts</span></button><button class="g" type="button" data-i="2"><img src="assets/img/posts-and-the-team-carousel.jpg" alt="Posts and the team carousel" loading="lazy"><span>Posts and the team carousel</span></button><button class="g" type="button" data-i="3"><img src="assets/img/instagram-stories.jpg" alt="Instagram stories" loading="lazy"><span>Instagram stories</span></button><button class="g" type="button" data-i="4"><img src="assets/img/staircase-stickers-at-iade.jpg" alt="Staircase stickers at IADE" loading="lazy"><span>Staircase stickers at IADE</span></button><button class="g" type="button" data-i="5"><img src="assets/img/sticker-album.jpg" alt="Sticker album" loading="lazy"><span>Sticker album</span></button><button class="g" type="button" data-i="6"><img src="assets/img/twister-collectible.jpg" alt="Twister collectible" loading="lazy"><span>Twister collectible</span></button><button class="g" type="button" data-i="7"><img src="assets/img/merch-t-shirts.jpg" alt="Merch: T-shirts" loading="lazy"><span>Merch: T-shirts</span></button></div>
+    <div class="dl">
+      <div><b>Promotional media</b><span>The full campaign document as a PDF, 24 pages.</span></div>
+      <a class="btn dlb" href="assets/docs/WTF-Promotional-Media.pdf" download>Download PDF</a>
+    </div>
+  </div>
+</section>
+
+<div class="lb" id="lb" hidden><button type="button" class="lbx" aria-label="Close">Close</button><img alt=""><p></p></div>
+
+<section class="band" id="team">
+  <div class="wrap">
+    <h2>The team</h2>
+    <p class="lead" style="color:var(--yellow)">IKAF*: I know a friend.</p>
+    <figure class="fig" style="margin:0"><img class="shot" src="assets/img/the-ikaf-team-in-what-the-floor-t-shirts-h.jpg" alt="The IKAF team in What The Floor? T-shirts, holding up extra Twister shirts" width="1200" height="900"><figcaption style="color:var(--white)">The IKAF team in their What The Floor? T-shirts.</figcaption></figure>
+    <p class="names" style="color:var(--white);margin-top:22px;max-width:none"><b style="color:var(--yellow)">IKAF* studio:</b> Carolina Almeida, Anselmo Barros, Giuliana Gavazzoni, Junlong Wei, Kateryna Kovalenko, Marco Van Winnendael and Maria Zaharia.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flogos"><img src="assets/img/ikaf-studio.png" alt="ikaf studio" width="260"><img src="assets/img/what-the-floor.png" alt="What The Floor?" width="170"></div>
+    <small>*IKAF: I Know A Friend</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+document.querySelectorAll('.yp').forEach(function(b){b.addEventListener('click',function(){
+  var f=document.createElement('iframe');
+  f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.v+'?autoplay=1&rel=0';
+  f.title='What The Floor? final render, '+b.dataset.t;
+  f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;
+  b.parentNode.replaceChild(f,b);});});
+var lb=document.getElementById('lb'),lbi=lb.querySelector('img'),lbp=lb.querySelector('p');
+function close(){lb.hidden=true;}
+document.querySelectorAll('.g').forEach(function(g){g.addEventListener('click',function(){
+  var im=g.querySelector('img');lbi.src=im.src;lbi.alt=im.alt;lbp.textContent=im.alt;lb.hidden=false;lb.querySelector('button').focus();});});
+lb.addEventListener('click',function(e){if(e.target!==lbi)close();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
+</body>
+</html>
